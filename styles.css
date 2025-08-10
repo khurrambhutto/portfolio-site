@@ -36,7 +36,7 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 32px;
+    gap: 15px;
     list-style: none;
     justify-content: center;
 }
@@ -75,7 +75,7 @@ nav {
 /* Top-right site brand */
 .site-brand {
     position: absolute;
-    left: -60px; /* pull to extreme left, outside container padding */
+    left: -450px; /* pull to extreme left, outside container padding */
     top: 0;
     margin-left: 0;
     padding-left: 0;
