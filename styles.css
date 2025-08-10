@@ -44,6 +44,8 @@ nav {
     gap: 15px;
     list-style: none;
     justify-content: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -96,6 +98,8 @@ nav {
     padding: 4px 0;
     transform: none;
     z-index: 1000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .site-brand:hover {
@@ -126,6 +130,7 @@ nav {
 
 .hero h1 {
     font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 42px; /* Fallback for browsers that don't support clamp */
     font-size: clamp(28px, 6vw, 42px);
     font-weight: 500;
     color: #e0def4;
@@ -136,6 +141,7 @@ nav {
 
 .tagline {
     font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 2.5rem; /* Fallback for browsers that don't support clamp */
     font-size: clamp(20px, 5.5vw, 2.5rem);
     font-weight: 600;
     color: #e0def4;
