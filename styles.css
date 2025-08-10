@@ -35,11 +35,18 @@ nav {
 }
 
 .nav-links {
+    position: fixed;
+    top: 20px;
+    left: 60%;
+    transform: translateX(-30%);
+    z-index: 1000;
     display: flex;
     gap: 15px;
     list-style: none;
     justify-content: center;
 }
+
+
 
 .nav-links a {
     color: #e0def4;
@@ -74,9 +81,9 @@ nav {
 
 /* Top-right site brand */
 .site-brand {
-    position: absolute;
-    left: -450px; /* pull to extreme left, outside container padding */
-    top: 0;
+    position: fixed;
+    left: 20px;
+    top: 20px;
     margin-left: 0;
     padding-left: 0;
     color: #e0def4;
@@ -88,6 +95,7 @@ nav {
     line-height: 1;
     padding: 4px 0;
     transform: none;
+    z-index: 1000;
 }
 
 .site-brand:hover {
@@ -118,7 +126,7 @@ nav {
 
 .hero h1 {
     font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-    font-size: 42px;
+    font-size: clamp(28px, 6vw, 42px);
     font-weight: 500;
     color: #e0def4;
     margin-bottom: 24px;
@@ -128,7 +136,7 @@ nav {
 
 .tagline {
     font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-    font-size: 2.5rem;
+    font-size: clamp(20px, 5.5vw, 2.5rem);
     font-weight: 600;
     color: #e0def4;
     margin-bottom: 32px;
