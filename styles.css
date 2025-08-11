@@ -22,7 +22,7 @@ body {
 
 /* Header */
 header {
-    padding: 40px 0 60px;
+    padding: 120px 0 60px;
     border-bottom: none;
 }
 
@@ -134,7 +134,7 @@ nav {
     font-size: clamp(28px, 6vw, 42px);
     font-weight: 500;
     color: #e0def4;
-    margin-bottom: 24px;
+    margin-bottom: 48px;
     line-height: 1.1;
     letter-spacing: -0.02em;
 }
@@ -231,6 +231,18 @@ main {
     line-height: 1;
 }
 
+/* Section dividers */
+.section + .section {
+    border-top: 1px solid rgb(54, 51, 71);
+    padding-top: 40px;
+}
+
+/* Divider above first section (Education) */
+#education {
+    border-top: 1px solid rgb(54, 51, 71);
+    padding-top: 40px;
+}
+
 /* About Section */
 .about-title {
     text-align: center;
@@ -249,7 +261,7 @@ main {
 }
 
 .about-content p {
-    margin-bottom: 24px;
+    margin-bottom: 48px;
     line-height: 1.75;
     color: #e0def4;
     font-size: 1rem;
@@ -341,6 +353,14 @@ main {
 
 .project-links a:hover {
     color: #8b5cf6;
+}
+
+/* Project tech tags */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 /* Experience Section */
@@ -450,6 +470,203 @@ footer {
     .projects-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Skills grid (cards) */
+.skills-main-title {
+    text-align: left;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    color: #e0def4;
+    font-size: 32px;
+    margin-bottom: 28px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+@media (max-width: 1024px) {
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+    .skills-grid { grid-template-columns: 1fr; }
+}
+
+.skill-category {
+    background-color: rgba(224, 222, 244, 0.05);
+    border: 1px solid rgba(224, 222, 244, 0.12);
+    border-radius: 14px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.skill-header h3 {
+    font-size: 18px;
+    color: #e0def4;
+    font-weight: 600;
+}
+
+.skill-icon { font-size: 18px; opacity: 0.9; }
+
+.skill-list {
+    list-style: disc inside;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #e0def4;
+}
+
+.skill-list li { opacity: 0.9; }
+
+/* Hover effects for skill cards */
+.skill-category {
+    position: relative;
+    overflow: hidden;
+    transition: transform 250ms ease, box-shadow 300ms ease, border-color 300ms ease, background-color 300ms ease;
+    will-change: transform;
+}
+
+/* light sweep */
+.skill-category::after {
+    content: "";
+    position: absolute;
+    top: -60%;
+    left: -80%;
+    width: 50%;
+    height: 220%;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);
+    transform: translateX(-120%) rotate(25deg);
+    transition: transform 600ms ease;
+    pointer-events: none;
+}
+
+.skill-category:hover {
+    transform: translateY(-6px) scale(1.01);
+    border-color: rgba(196, 167, 231, 0.45);
+    box-shadow: 0 12px 35px rgba(196,167,231,0.18), 0 8px 18px rgba(0,0,0,0.25);
+}
+
+.skill-category:hover::after {
+    transform: translateX(220%) rotate(25deg);
+}
+
+/* playful icon motion */
+.skill-icon { transition: transform 250ms ease, filter 250ms ease; }
+.skill-category:hover .skill-icon {
+    transform: translateY(-1px) rotate(-6deg);
+    filter: drop-shadow(0 2px 6px rgba(196,167,231,0.35));
+}
+
+/* reduce motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .skill-category, .skill-category::after, .skill-icon {
+        transition: none;
+    }
+}
+
+/* Education */
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.education-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: rgba(224, 222, 244, 0.05);
+    border: 1px solid rgba(224, 222, 244, 0.12);
+    border-radius: 12px;
+    padding: 16px 20px;
+}
+
+.edu-left h3 {
+    font-size: 18px;
+    color: #e0def4;
+    margin-bottom: 6px;
+}
+
+.edu-meta {
+    color: rgb(87, 82, 121);
+    font-size: 14px;
+}
+
+.edu-right {
+    color: #e0def4;
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+@media (max-width: 640px) {
+    .education-item { flex-direction: column; gap: 6px; }
+    .edu-right { align-self: flex-start; }
+}
+
+/* Education - list style v2 (refined) */
+.edu-list { border: none; border-radius: 0; overflow: visible; }
+.edu-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 18px 0;
+  background: transparent;
+  border-top: 1px solid rgb(54, 51, 71);
+}
+.edu-row:first-child { border-top: 1px solid rgb(54, 51, 71); }
+.edu-row:hover { background: rgba(224, 222, 244, 0.03); }
+.edu-title { color: #e0def4; font-weight: 600; font-size: 17px; }
+.edu-sub { color: rgb(87, 82, 121); font-size: 14px; margin-top: 4px; font-style: italic; }
+.edu-side { color: #e0def4; opacity: 0.9; font-size: 14px; white-space: nowrap; }
+@media (max-width: 640px) {
+  .edu-row { grid-template-columns: 1fr; gap: 6px; }
+  .edu-side { align-self: flex-start; }
+}
+
+/* Ensure project links sit at the bottom right of each card */
+.project-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-links {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-bottom: 2px;
+}
+
+/* Slight extra bottom padding for visual breathing room */
+.project-card { padding-bottom: 16px; }
+
+/* Mobile responsiveness overrides */
+@media (max-width: 768px) {
+  .container { padding: 0 16px; }
+  header { padding: 80px 0 40px; }
+  .site-brand { top: 14px; left: 12px; font-size: 14px; }
+  .nav-links {
+    top: 14px; right: 12px; left: auto; transform: none;
+    gap: 12px; flex-wrap: wrap; display: flex;
+  }
+  .nav-links a { font-size: 12px; }
+  .projects-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .nav-links { display: flex; }
+  .hero h1 { font-size: clamp(22px, 8vw, 32px); }
+  .tagline { font-size: clamp(18px, 6vw, 24px); }
 }
 
 
