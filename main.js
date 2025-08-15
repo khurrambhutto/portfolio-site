@@ -35,4 +35,22 @@ document.querySelectorAll('.project-card').forEach(card => {
     observer.observe(card);
 });
 
+// Observe skills cards for animation
+document.querySelectorAll('.skill-category').forEach(card => {
+    observer.observe(card);
+});
 
+
+// Show success message when redirected back from form submit
+(() => {
+    try {
+        const url = new URL(window.location.href);
+        if (url.searchParams.get('sent') === '1') {
+            const success = document.getElementById('quote-success');
+            if (success) {
+                success.hidden = false;
+                success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    } catch (_) {}
+})();
